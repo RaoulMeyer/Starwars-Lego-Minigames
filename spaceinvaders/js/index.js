@@ -93,11 +93,11 @@ var RIGHT_KEY = 39;
 var SHOOT_KEY = 38;
 var SHOOT_KEY_2 = 32;
 var TEXT_BLINK_FREQ = 500;
-var PLAYER_CLIP_RECT = { x: 0, y: 204, w: 105, h: 105 };
-var ALIEN_BOTTOM_ROW = [ { x: 0, y: 0, w: 51, h: 34 }, { x: 0, y: 102, w: 51, h: 34 }];
-var ALIEN_MIDDLE_ROW = [ { x: 0, y: 137, w: 50, h: 33 }, { x: 0, y: 170, w: 50, h: 34 }];
-var ALIEN_TOP_ROW = [ { x: 0, y: 68, w: 50, h: 32 }, { x: 0, y: 34, w: 50, h: 32 }];
-var ALIEN_X_MARGIN = 40;
+var PLAYER_CLIP_RECT = { x: 0, y: 256, w: 105, h: 105 };
+var ALIEN_BOTTOM_ROW = [ { x: 0, y: 0, w: 64, h: 64 }, { x: 0, y: 64, w: 64, h: 64 }];
+var ALIEN_MIDDLE_ROW = [ { x: 0, y: 128, w: 64, h: 64 }, { x: 0, y: 192, w: 64, h: 64 }];
+var ALIEN_TOP_ROW = [ { x: 0, y: 0, w: 64, h: 64 }, { x: 0, y: 64, w: 64, h: 64 }];
+var ALIEN_X_MARGIN = 50;
 var ALIEN_SQUAD_WIDTH = 11 * ALIEN_X_MARGIN;
 
 
@@ -181,6 +181,8 @@ var alienYDown = 0;
 var alienCount = 0;
 var wave = 1;
 var hasGameStarted = false;
+var backgroundImage = new Image();
+backgroundImage.src = 'img/background.png';
 
 
 
@@ -468,7 +470,7 @@ function initCanvas() {
   // create our canvas and context
   canvas = document.getElementById('game-canvas');
   ctx = canvas.getContext('2d');
-  
+
   // turn off image smoothing
   setImageSmoothing(false);
   
@@ -686,10 +688,16 @@ function drawAliens(resized) {
 }
 
 function drawGame(resized) {
-  player.draw(resized);  
+  drawBackground();
+  player.draw(resized);
   drawAliens(resized);
   particleManager.draw();
   drawBottomHud();
+}
+
+function drawBackground() {
+  ctx.fillStyle = ctx.createPattern(backgroundImage, 'repeat');
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawStartScreen() {
