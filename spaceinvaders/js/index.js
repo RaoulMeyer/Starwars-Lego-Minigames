@@ -90,7 +90,8 @@ var CANVAS_HEIGHT = 640;
 var SPRITE_SHEET_SRC = 'img/sprites.png';
 var LEFT_KEY = 37;
 var RIGHT_KEY = 39;
-var SHOOT_KEY = 88;
+var SHOOT_KEY = 38;
+var SHOOT_KEY_2 = 32;
 var TEXT_BLINK_FREQ = 500;
 var PLAYER_CLIP_RECT = { x: 0, y: 204, w: 105, h: 105 };
 var ALIEN_BOTTOM_ROW = [ { x: 0, y: 0, w: 51, h: 34 }, { x: 0, y: 102, w: 51, h: 34 }];
@@ -270,7 +271,7 @@ var Player = SheetSprite.extend({
       this.xVel = 175;
     } else this.xVel = 0;
     
-    if (wasKeyPressed(SHOOT_KEY)) {
+    if (wasKeyPressed(SHOOT_KEY) || wasKeyPressed(SHOOT_KEY_2)) {
       if (this.bulletDelayAccumulator > 0.5) {
         this.shoot(); 
         this.bulletDelayAccumulator = 0;
