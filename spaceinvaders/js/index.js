@@ -181,6 +181,7 @@ var alienYDown = 0;
 var alienCount = 0;
 var wave = 1;
 var hasGameStarted = false;
+var hasPlayerFailed = false;
 var backgroundImage = new Image();
 backgroundImage.src = 'img/background.png';
 
@@ -617,10 +618,11 @@ function resolveBulletPlayerCollisions() {
     if (alien.bullet !== null && checkRectCollision(alien.bullet.bounds, player.bounds)) {
       if (player.lives === 0) {
         hasGameStarted = false;
+        hasPlayerFailed = true;
+        return;
       } else {
        alien.bullet.alive = false;
        particleManager.createExplosion(player.position.x, player.position.y, 'red', 50, 8,8,10,0.001,40);
-       player.position.set(CANVAS_WIDTH/2, CANVAS_HEIGHT - 90);
        player.lives--;
         break;
       }
@@ -705,6 +707,11 @@ function drawStartScreen() {
   fillBlinkingText("Press enter to play!", CANVAS_WIDTH/2, CANVAS_HEIGHT/2, 500, '#FFFFFF', 36);
 }
 
+function drawDeathScreen() {
+  fillCenteredText("You did not succeed :(", CANVAS_WIDTH/2, CANVAS_HEIGHT/2.75, '#FFFFFF', 36);
+  fillBlinkingText("Press enter to try again", CANVAS_WIDTH/2, CANVAS_HEIGHT/2, 500, '#FFFFFF', 36);
+}
+
 function animate() {
   var now = window.performance.now();
   var dt = now - lastTime;
@@ -723,8 +730,10 @@ function animate() {
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   if (hasGameStarted) {
     drawGame(false);
-  } else {
+  } else if(!hasPlayerFailed) {
     drawStartScreen();
+  } else {
+    drawDeathScreen();
   }
   lastTime = now;
   requestAnimationFrame(animate);
@@ -756,12 +765,10 @@ function resize() {
 }
 
 function onKeyDown(e) {
-  e.preventDefault();
   keyStates[e.keyCode] = true;
 }
 
 function onKeyUp(e) {
-  e.preventDefault();
   keyStates[e.keyCode] = false;
 }
 
