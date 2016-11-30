@@ -87,12 +87,12 @@
 var IS_CHROME = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 var CANVAS_WIDTH = 640;
 var CANVAS_HEIGHT = 640;
-var SPRITE_SHEET_SRC = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAEACAYAAAADRnAGAAACGUlEQVR42u3aSQ7CMBAEQIsn8P+/hiviAAK8zFIt5QbELiTHmfEYE3L9mZE9AAAAqAVwBQ8AAAD6THY5CgAAAKbfbPX3AQAAYBEEAADAuZrC6UUyfMEEAIBiAN8OePXnAQAAsLcmmKFPAQAAgHMbm+gbr3Sdo/LtcAAAANR6GywPAgBAM4D2JXAAABoBzBjA7AmlOx8AAEAzAOcDAADovTc4vQim6wUCABAYQG8QAADd4dPd2fRVYQAAANQG0B4HAABAawDnAwAA6AXgfAAAALpA2uMAAABwPgAAgPoAM9Ci/R4AAAD2dmqcEQIAIC/AiQGuAAYAAECcRS/a/cJXkUf2AAAAoBaA3iAAALrD+gIAAADY9baX/nwAAADNADwFAADo9YK0e5FMX/UFACA5QPSNEAAAAHKtCekmDAAAAADvBljtfgAAAGgMMGOrunvCy2uCAAAACFU6BwAAwF6AGQPa/XsAAADYB+B8AAAAtU+ItD4OAwAAAFVhAACaA0T7B44/BQAAANALwGMQAAAAADYO8If2+P31AgAAQN0SWbhFDwCAZlXgaO1xAAAA1FngnA8AACAeQPSNEAAAAM4CnC64AAAA4GzN4N9NSfgKEAAAAACszO26X8/X6BYAAAD0Anid8KcLAAAAAAAAAJBnwNEvAAAA9Jns1ygAAAAAAAAAAAAAAAAAAABAQ4COCENERERERERERBrnAa1sJuUVr3rsAAAAAElFTkSuQmCC';
+var SPRITE_SHEET_SRC = 'img/sprites.png';
 var LEFT_KEY = 37;
 var RIGHT_KEY = 39;
 var SHOOT_KEY = 88;
 var TEXT_BLINK_FREQ = 500;
-var PLAYER_CLIP_RECT = { x: 0, y: 204, w: 62, h: 32 };
+var PLAYER_CLIP_RECT = { x: 0, y: 204, w: 105, h: 105 };
 var ALIEN_BOTTOM_ROW = [ { x: 0, y: 0, w: 51, h: 34 }, { x: 0, y: 102, w: 51, h: 34 }];
 var ALIEN_MIDDLE_ROW = [ { x: 0, y: 137, w: 50, h: 33 }, { x: 0, y: 170, w: 50, h: 34 }];
 var ALIEN_TOP_ROW = [ { x: 0, y: 68, w: 50, h: 32 }, { x: 0, y: 34, w: 50, h: 32 }];
@@ -243,7 +243,7 @@ var SheetSprite = BaseSprite.extend({
 
 var Player = SheetSprite.extend({
   init: function() {
-    this._super(spriteSheetImg, PLAYER_CLIP_RECT, CANVAS_WIDTH/2, CANVAS_HEIGHT - 70);
+    this._super(spriteSheetImg, PLAYER_CLIP_RECT, CANVAS_WIDTH/2, CANVAS_HEIGHT - 90);
     this.scale.set(0.85, 0.85);
     this.lives = 3;
     this.xVel = 0;
@@ -255,7 +255,7 @@ var Player = SheetSprite.extend({
   reset: function() {
     this.lives = 3;
     this.score = 0;
-    this.position.set(CANVAS_WIDTH/2, CANVAS_HEIGHT - 70);
+    this.position.set(CANVAS_WIDTH/2, CANVAS_HEIGHT - 90);
   },
   
   shoot: function() {
@@ -355,7 +355,7 @@ var Enemy = SheetSprite.extend({
   },
   
   shoot: function() {
-    this.bullet = new Bullet(this.position.x, this.position.y + this.bounds.w/2, -1, 500);
+    this.bullet = new Bullet(this.position.x, this.position.y + this.bounds.w/2, -1, 400);
   },
   
   update: function(dt) {
@@ -483,8 +483,8 @@ function initCanvas() {
 }
 
 function preDrawImages() {
-  var canvas = drawIntoCanvas(2, 8, function(ctx) {
-      ctx.fillStyle = 'white';
+  var canvas = drawIntoCanvas(4, 8, function(ctx) {
+      ctx.fillStyle = 'orange';
       ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     });
     bulletImg = new Image();
@@ -601,7 +601,7 @@ function resolveBulletEnemyCollisions() {
       var alien = aliens[j];
       if (checkRectCollision(bullet.bounds, alien.bounds)) {
         alien.alive = bullet.alive = false;
-        particleManager.createExplosion(alien.position.x, alien.position.y, 'white', 70, 5,5,3,.15,50);
+        particleManager.createExplosion(alien.position.x, alien.position.y, 'white', 10, 5,5,3,.15,50);
         player.score += 25;
       }
     }
@@ -616,8 +616,8 @@ function resolveBulletPlayerCollisions() {
         hasGameStarted = false;
       } else {
        alien.bullet.alive = false;
-       particleManager.createExplosion(player.position.x, player.position.y, 'green', 100, 8,8,6,0.001,40);
-       player.position.set(CANVAS_WIDTH/2, CANVAS_HEIGHT - 70);
+       particleManager.createExplosion(player.position.x, player.position.y, 'red', 50, 8,8,10,0.001,40);
+       player.position.set(CANVAS_WIDTH/2, CANVAS_HEIGHT - 90);
        player.lives--;
         break;
       }
