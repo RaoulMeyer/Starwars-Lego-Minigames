@@ -19,6 +19,8 @@ var PACMAN_KILLING_TIMER = -1;
 var PACMAN_KILLING_SPEED = 70;
 var PACMAN_RETRY_SPEED = 2100;
 var PACMAN_DEAD = false;
+var PACMAN_IMAGE = new Image();
+PACMAN_IMAGE.src = 'img/r2d2.png';
 
 function initPacman() { 
 	var canvas = document.getElementById('canvas-pacman');
@@ -211,34 +213,26 @@ function drawPacman() {
 
 	var ctx = getPacmanCanevasContext();
 	
-	ctx.fillStyle = "#fff200";
-	ctx.beginPath();
-	
-	var startAngle = 0;
-	var endAngle = 2 * Math.PI;
-	var lineToX = PACMAN_POSITION_X;
-	var lineToY = PACMAN_POSITION_Y;
-	if (PACMAN_DIRECTION === 1) { 
-		startAngle = (0.35 - (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		endAngle = (1.65 + (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		lineToX -= 8;
-	} else if (PACMAN_DIRECTION === 2) { 
-		startAngle = (0.85 - (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		endAngle = (0.15 + (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		lineToY -= 8;
-	} else if (PACMAN_DIRECTION === 3) { 
-		startAngle = (1.35 - (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		endAngle = (0.65 + (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		lineToX += 8;
-	} else if (PACMAN_DIRECTION === 4) { 
-		startAngle = (1.85 - (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		endAngle = (1.15 + (PACMAN_MOUNTH_STATE * 0.05)) * Math.PI;
-		lineToY += 8;
+	var angle = 0;
+	if (PACMAN_DIRECTION === 1) {
+		angle = -Math.PI / 2
+	} else if (PACMAN_DIRECTION === 2) {
+		angle = 0;
+	} else if (PACMAN_DIRECTION === 3) {
+		angle = Math.PI / 2;
+	} else if (PACMAN_DIRECTION === 4) {
+		angle = Math.PI;
 	}
-	ctx.arc(PACMAN_POSITION_X, PACMAN_POSITION_Y, PACMAN_SIZE, startAngle, endAngle, false);
-	ctx.lineTo(lineToX, lineToY);
-	ctx.fill();
-	ctx.closePath();
+
+	ctx.translate(PACMAN_POSITION_X, PACMAN_POSITION_Y);
+	ctx.rotate(angle);
+	ctx.translate(-PACMAN_POSITION_X, -PACMAN_POSITION_Y);
+
+	ctx.drawImage(PACMAN_IMAGE, PACMAN_POSITION_X - 15, PACMAN_POSITION_Y - 15, 30, 30);
+
+	ctx.translate(PACMAN_POSITION_X, PACMAN_POSITION_Y);
+	ctx.rotate(-angle);
+	ctx.translate(-PACMAN_POSITION_X, -PACMAN_POSITION_Y);
 }
 
 function erasePacman() { 

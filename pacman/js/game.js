@@ -269,15 +269,7 @@ function lifes(l) {
 		ctx.clearRect(0, 0, 120, 30);
 		ctx.fillStyle = "#fff200";
 		for (var i = 0, imax = LIFES; (i < imax && i < 4); i ++) { 
-			ctx.beginPath();
-			
-			var lineToX = 13;
-			var lineToY = 15;
-			
-			ctx.arc(lineToX + (i * 30), lineToY, 13, (1.35 - (3 * 0.05)) * Math.PI, (0.65 + (3 * 0.05)) * Math.PI, false);
-			ctx.lineTo(lineToX + (i * 30) + 4, lineToY);
-			ctx.fill();
-			ctx.closePath();
+			ctx.drawImage(PACMAN_IMAGE, 45 * i + 10, 0, 30, 30);
 		}
 	}
 }
