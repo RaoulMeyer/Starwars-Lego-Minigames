@@ -14,10 +14,13 @@
             $("#canvas").css('background-color', '#9999FF');
             var canvasContext = canvas.getContext("2d");
             var avatar = new Image();
-            avatar.src = "http://66.media.tumblr.com/avatar_72fdaeff448f_128.png";
+            avatar.src = "img/ship.png";
 
             var background = new Image();
-            background.src = "http://s006.radikal.ru/i215/1010/ec/c29bf435b98b.jpg";
+            background.src = "img/background.png";
+
+            var wallImage = new Image();
+            wallImage.src = 'img/wall.png';
 
             var FRAMERATE = 120;
             var HORIZONTAL_SPEED = 150;
@@ -35,8 +38,8 @@
                 this.y = 0;
                 this.xSpeed = HORIZONTAL_SPEED;
                 this.ySpeed = 0;
-                this.width = 50;
-                this.height = 50;
+                this.width = 100;
+                this.height = 100;
                 this.id = id;
                 this.jump = function () {
                     this.ySpeed = -400;
@@ -54,7 +57,7 @@
                 this.x = x;
                 this.gapY = gapY;
                 this.width = 50;
-                this.gapSize = 170;
+                this.gapSize = 190;
                 this.near = function (bird) {
                     return bird.x > this.x - 300 && bird.x < this.x + this.width + 300;
                 };
@@ -146,6 +149,7 @@
 
                     canvasContext.translate(-offset, 0);
 
+                    canvasContext.fillStyle = canvasContext.createPattern(wallImage, 'repeat');
                     canvasContext.fillRect(obstacle.x, 0, obstacle.width, obstacle.gapY);
                     canvasContext.fillRect(obstacle.x, obstacle.gapY + obstacle.gapSize, obstacle.width, canvas.height - obstacle.gapY - obstacle.gapSize);
 
