@@ -20,11 +20,12 @@ $(function () {
     var obstacles = [];
 
     var ownBird = new Bird(ownId);
+    ownBird.dead = true;
     birds.push(ownBird);
 
     function Bird(id) {
         this.x = 100;
-        this.y = 0;
+        this.y = 100;
         this.xSpeed = HORIZONTAL_SPEED;
         this.ySpeed = 0;
         this.width = 100;
@@ -227,4 +228,9 @@ $(function () {
     setInterval(loop, 1000 / FRAMERATE);
 
     canvas.onclick = action;
+    window.onkeydown = function (e) {
+        if (e.keyCode == 32 || e.keyCode == 38 || e.keyCode == 13) {
+            action();
+        }
+    }
 });
