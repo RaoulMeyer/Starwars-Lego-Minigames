@@ -180,16 +180,28 @@ h1 sub
     text-align: center;
 }
 
-#titles a
+a
 {
     color: #ff6;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #title-content
 {
     position: absolute;
     top: 100%;
+}
+
+#start-menu
+{
+    position: fixed;
+    width: 600px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 100;
+    font-size: 40px;
+    line-height: 80px;
+    display: none;
 }
 
 #menu
@@ -202,4 +214,31 @@ h1 sub
     font-size: 40px;
     line-height: 80px;
     display: none;
+    padding-top: 100px;
+}
+
+#menu li {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0;
+    vertical-align: middle;
+    height: 200px;
+}
+
+#menu li img {
+    height: 200px;
+    float: right;
+}
+
+#menu li a {
+    float: left;
+    line-height: 200px;
+}
+
+#transition {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 1000;
 }
