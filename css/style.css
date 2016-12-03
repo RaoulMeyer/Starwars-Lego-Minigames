@@ -207,7 +207,7 @@ a
 #menu
 {
     position: fixed;
-    width: 600px;
+    width: 700px;
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 100;
@@ -220,14 +220,20 @@ a
 #menu li {
     list-style-type: none;
     margin: 0;
-    padding: 20px 0;
+    padding: 40px 0;
     vertical-align: middle;
     height: 200px;
+    cursor: pointer;
 }
 
 #menu li img {
+    transition: height 0.5s ease;
     height: 200px;
     float: right;
+}
+
+#menu li:hover img {
+    height: 250px;
 }
 
 #menu li a {

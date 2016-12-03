@@ -16,6 +16,10 @@ $(function() {
 
     if (body.hasClass('menu')) {
         $('#menu').show();
+
+        $('li').click(function() {
+            $(this).find('a').click();
+        })
     }
 
     function transition(href) {
