@@ -242,10 +242,14 @@
 			<canvas id="canvas-level-fruits"></canvas>
 			<div id="message"></div>
 			<div class="help-button">- help -</div>
-			<a class="sound" href="javascript:void(0);" data-sound="on"><img src="img/sound-on.png" alt="" border="0"></a>
+			<a class="sound" href="javascript:void(0);" data-sound="off" style="display: none;"><img src="img/sound-on.png" alt="" border="0"></a>
 		</div>
 
 		<div id="transition">&nbsp;</div>
+		<audio controls autoplay="autoplay" style="display: none;">
+			<source src="../audio/pacman.mp3"
+					type='audio/mp3'>
+		</audio>
 	</body>
 	
 </html>

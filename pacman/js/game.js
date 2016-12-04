@@ -171,7 +171,7 @@ function ready() {
 	message("ready!");
 	
 	playReadySound();
-	setTimeout("go()", "4100");
+	setTimeout("go()", "2000");
 }
 function go() { 
 	playSirenSound();

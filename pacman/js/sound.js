@@ -127,7 +127,7 @@ function stopSirenSound() {
 
 function playReadySound() { 
 	if (isAvailableSound()) { 
-		READY_SOUND.play();
+		//READY_SOUND.play();
 	}
 }
 
