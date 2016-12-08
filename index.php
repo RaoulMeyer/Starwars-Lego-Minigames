@@ -1,3 +1,7 @@
+<?php
+require_once('functions.php');
+verifyToken();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +21,7 @@
     </div>
 
     <div id="start-menu">
-        <a href="menu.html" id="start-button">Test link</a>
+        <a href="menu.php" id="start-button">Test link</a>
     </div>
     <div id="transition">&nbsp;</div>
 </body>

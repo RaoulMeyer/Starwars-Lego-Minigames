@@ -1,3 +1,7 @@
+<?php
+require_once('../functions.php');
+verifyToken();
+?>
 <html>
 <head>
     <link rel="stylesheet" href="css/style.css">

@@ -110,9 +110,9 @@ function win() {
 	
 	eraseGhosts();
 
-	setTimeout("prepareNextLevel()", 1000);
-
+	won(1);
 }
+
 function prepareNextLevel(i) { 
 	if ( LEVEL_NEXT_TIMER === -1 ) { 
 		eraseBoardDoor();

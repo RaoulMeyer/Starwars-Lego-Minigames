@@ -18,6 +18,7 @@ $(function () {
 
     var birds = [];
     var obstacles = [];
+    var won = false;
 
     var ownBird = new Bird(ownId);
     ownBird.dead = true;
@@ -128,6 +129,10 @@ $(function () {
 
         if (!ownBird.dead) {
             offset += HORIZONTAL_SPEED / FRAMERATE;
+
+            if (offset > 5000) {
+                won(3);
+            }
         }
 
         canvasContext.drawImage(background, -offset % canvas.width, 0, canvas.width, canvas.height);

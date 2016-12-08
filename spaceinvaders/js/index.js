@@ -576,8 +576,7 @@ function updateAliens(dt) {
       alien = null;
       alienCount--;
       if (alienCount < 1) {
-        wave++;
-        setupAlienFormation();
+        won(2);
       }
       return;
     }
