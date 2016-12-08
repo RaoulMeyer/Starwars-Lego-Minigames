@@ -1,7 +1,7 @@
 <?php
 
 function verifyToken() {
-    $actualToken = file_get_contents('token');
+    $actualToken = trim(file_get_contents('token'));
 
     if ($_GET['token'] === $actualToken) {
         return true;
