@@ -74,9 +74,6 @@ $(function() {
             href += '?' + window.location.href.slice(window.location.href.indexOf('?') + 1);
         }
 
-        won(2);
-        return false;
-
         $('#transition').fadeIn(1000);
         $('audio').animate({volume: 0}, 1000);
         setTimeout(function() {window.location = href}, 1200);
