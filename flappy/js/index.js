@@ -18,7 +18,7 @@ $(function () {
 
     var birds = [];
     var obstacles = [];
-    var won = false;
+    var finished = false;
 
     var ownBird = new Bird(ownId);
     ownBird.dead = true;
@@ -130,8 +130,9 @@ $(function () {
         if (!ownBird.dead) {
             offset += HORIZONTAL_SPEED / FRAMERATE;
 
-            if (offset > 5000) {
+            if (offset > 5000 && !finished) {
                 won(3);
+                finished = true;
             }
         }
 
