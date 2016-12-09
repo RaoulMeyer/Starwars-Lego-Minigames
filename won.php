@@ -7,7 +7,7 @@ if (!isset($_GET['token']) || !isset($_GET['part']) || !ctype_digit($_GET['part'
 $actualToken = file_get_contents('token');
 
 if ($_GET['token'] === $actualToken) {
-    $currentProgress = 1;
+    $currentProgress = 0;
     if (file_exists('progress')) {
         $currentProgress = file_get_contents('progress');
     }
