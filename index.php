@@ -12,16 +12,15 @@ verifyToken();
 <body class="intro">
     <div id="titles">
         <div id="title-content">
-            <p>Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.</p>
-            <p>Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.</p>
-            <p>Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.</p>
-            <p>Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.</p>
-            <p>Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.Dit is een test.</p>
+            <p>Although peace may be upon us, it is of great importance to always be prepared for battle.</p>
+            <p>In this trial, you must defeat numerous enemies in often difficult circumstances. Unfortunately, gravity does not seem to be on your side.</p>
+            <p>A reward awaits those that succeed...</p>
+            <p>Good luck!</p>
         </div>
     </div>
 
-    <div id="start-menu">
-        <a href="menu.php" id="start-button">Test link</a>
+    <div id="start-menu" style="display: none;">
+        <a href="menu.php" id="start-button">>> Skip intro</a>
     </div>
     <div id="transition">&nbsp;</div>
 </body>

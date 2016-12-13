@@ -1,12 +1,12 @@
 $(function() {
     var body = $('body');
     if (body.hasClass('intro')) {
-        var duration = 12000;
+        var duration = 45000;
 
         $('#title-content').animate({
-            top: '-100%'
+            top: '-50%'
         }, duration, 'linear', function () {
-            $('#start-menu').fadeIn();
+            $('#start-button').click();
         });
 
         body.animate({
