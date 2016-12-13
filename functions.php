@@ -56,3 +56,11 @@ function showPart($part) {
 function getSteamCode() {
     return trim(file_get_contents('steamcode'));
 }
+
+function redirectLoading() {
+    if (empty($_COOKIE['loaded'])) {
+        $token = !empty($_GET['token']) ? '?token=' . $_GET['token'] : '';
+        setcookie('loaded', '1');
+        header('Location: loading.html' . $token);
+    }
+}

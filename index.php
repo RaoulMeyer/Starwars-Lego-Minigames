@@ -1,6 +1,7 @@
 <?php
 require_once('functions.php');
 verifyToken();
+redirectLoading();
 ?>
 <!DOCTYPE html>
 <html lang="en">
