@@ -1,13 +1,7 @@
 <?php
 
 function verifyToken() {
-    if (file_exists('token')) {
-        $actualToken = trim(file_get_contents('token'));
-    } else {
-        $actualToken = trim(file_get_contents('../token'));
-    }
-
-    if ($_GET['token'] === $actualToken) {
+    if ($_GET['token'] === getActualToken()) {
         return true;
     }
 
@@ -27,4 +21,22 @@ function gameIsFinished() {
     }
 
     return false;
+}
+
+function redirectToVictoryScreen() {
+    if (gameIsFinished()) {
+        if (isset($_GET['token']) && $_GET['token'] === getActualToken()) {
+            header('Location: victory.php');
+        }
+    }
+}
+
+function getActualToken() {
+    if (file_exists('token')) {
+        $actualToken = trim(file_get_contents('token'));
+    } else {
+        $actualToken = trim(file_get_contents('../token'));
+    }
+
+    return $actualToken;
 }
