@@ -16,6 +16,8 @@ verifyToken();
     <canvas id="game-canvas" width="640" height="640"></canvas>
 
     <div id="transition">&nbsp;</div>
+    <a href="/menu.php" style="display: none;" id="back-button"></a>
+
     <script src="js/index.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="../js/index.js"></script>

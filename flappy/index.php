@@ -11,6 +11,7 @@ verifyToken();
 </head>
 <body>
     <div id="transition">&nbsp;</div>
+    <a href="/menu.php" style="display: none;" id="back-button"></a>
     <canvas id="canvas" width="1000" height="500"></canvas>
     <audio controls autoplay="autoplay" loop="loop" style="display: none;">
         <source src="../audio/flappy.mp3"

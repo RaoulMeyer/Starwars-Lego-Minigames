@@ -250,6 +250,7 @@ verifyToken();
 		</div>
 
 		<div id="transition">&nbsp;</div>
+		<a href="/menu.php" style="display: none;" id="back-button"></a>
 		<audio controls autoplay="autoplay" style="display: none;" loop="loop">
 			<source src="../audio/pacman.mp3"
 					type='audio/mp3'>

@@ -88,6 +88,7 @@ function won(part) {
 
     if (params.hasOwnProperty('token')) {
         $.get("/won.php", { token: params['token'], part: part } );
+        setTimeout(function() { $('#back-button').click() }, 1000);
     }
 }
 
