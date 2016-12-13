@@ -13,22 +13,24 @@ redirectToVictoryScreen();
 <body class="menu">
     <div id="menu">
         <ul>
+            <?php if (showPart(1)): ?>
             <li>
                 <img src="img/r2d2.png" />
                 <a href="./pacman/">EPISODE I</a>
             </li>
-        </ul>
-        <ul>
+            <?php endif; ?>
+            <?php if (showPart(2)): ?>
             <li>
                 <img src="img/xwing.png" />
                 <a href="./spaceinvaders/">EPISODE II</a>
             </li>
-        </ul>
-        <ul>
+            <?php endif; ?>
+            <?php if (showPart(3)): ?>
             <li>
                 <img src="img/falcon.png" />
                 <a href="./flappy/">EPISODE III</a>
             </li>
+            <?php endif; ?>
         </ul>
     </div>
     <div id="transition">&nbsp;</div>

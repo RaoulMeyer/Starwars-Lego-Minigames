@@ -40,3 +40,15 @@ function getActualToken() {
 
     return $actualToken;
 }
+
+function showPart($part) {
+    if ($part === 1) {
+        return true;
+    }
+
+    $currentProgress = intval(file_get_contents('progress'));
+
+    if ($currentProgress + 1 >= $part) {
+        return true;
+    }
+}
