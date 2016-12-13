@@ -20,7 +20,7 @@ verifyToken();
 </body>
 
 <audio controls autoplay="autoplay" loop="loop">
-    <source src="audio/menu.mp3"
+    <source src="audio/victory.mp3"
             type='audio/mp3'>
 </audio>
 
