@@ -52,3 +52,7 @@ function showPart($part) {
         return true;
     }
 }
+
+function getSteamCode() {
+    return trim(file_get_contents('steamcode'));
+}

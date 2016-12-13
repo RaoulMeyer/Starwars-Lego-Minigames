@@ -11,7 +11,10 @@ verifyToken();
 </head>
 <body class="menu">
     <div id="menu">
-        VICTORY!
+        CONGRATULATIONS! <br />
+        Your efforts are rewarded with the following Steam code: <br /><br />
+        <?php echo getSteamCode(); ?><br /><br />
+        Please redeem this code as soon as possible!
     </div>
     <div id="transition">&nbsp;</div>
 </body>
