@@ -21,8 +21,8 @@ function Message(type) {
 }
 
 
-server.listen(9999, function () {
-    console.log((new Date()) + " Server is listening on port " + 9999);
+server.listen(11111, function () {
+    console.log((new Date()) + " Server is listening on port " + 11111);
 });
 
 var wsServer = new WebSocketServer({

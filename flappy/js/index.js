@@ -77,7 +77,7 @@ $(function () {
 
     function WebSocketTest() {
         if ("WebSocket" in window) {
-            ws = new WebSocket("ws://localhost:9999/");
+            ws = new WebSocket("ws://santa.tumma.nl:11111/");
             ws.onopen = function () {
                 ws.send(JSON.stringify(new Message("getObstacles")));
                 ws.send(JSON.stringify(new Message("start")));
