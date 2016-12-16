@@ -349,7 +349,7 @@ var Enemy = SheetSprite.extend({
     this.onFirstState = true;
     this.stepDelay = 1; // try 2 secs to start with...
     this.stepAccumulator = 0;
-    this.doShoot - false;
+    this.doShoot = false;
     this.bullet = null;
   },
   
@@ -376,7 +376,7 @@ var Enemy = SheetSprite.extend({
       }
       
       var fireTest = Math.floor(Math.random() * (this.stepDelay + 1));
-      if (getRandomArbitrary(0, 1000) <= 5 * (this.stepDelay + 1)) {
+      if (getRandomArbitrary(0, 600) <= 5 * (this.stepDelay + 1)) {
         this.doShoot = true;
       }
       this.position.x += 10 * alienDirection;

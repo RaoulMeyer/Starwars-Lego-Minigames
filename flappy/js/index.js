@@ -11,7 +11,7 @@ $(function () {
     var wallImage = new Image();
     wallImage.src = 'img/wall.png';
 
-    var FRAMERATE = 120;
+    var FRAMERATE = 60;
     var HORIZONTAL_SPEED = 150;
     var offset = 0;
     var ownId = Math.floor(Math.random() * 10000);
@@ -133,6 +133,7 @@ $(function () {
             if (offset > 5000 && !finished) {
                 won(3);
                 finished = true;
+                ownBird.dead = true;
             }
         }
 
