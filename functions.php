@@ -9,7 +9,7 @@ function verifyToken() {
         return true;
     }
 
-    header('Location: nope.html');
+    header('Location: /nope.html');
     die();
 }
 
