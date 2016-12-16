@@ -14,9 +14,9 @@ function verifyToken() {
 }
 
 function gameIsFinished() {
-    $currentProgress = file_get_contents('progress');
+    $currentProgress = getProgress();
 
-    if ($currentProgress === '3') {
+    if ($currentProgress == 3) {
         return true;
     }
 
@@ -41,12 +41,22 @@ function getActualToken() {
     return $actualToken;
 }
 
+function getProgress() {
+    if (file_exists('progress')) {
+        $progress = trim(file_get_contents('progress'));
+    } else {
+        $progress = trim(file_get_contents('../progress'));
+    }
+
+    return intval($progress);
+}
+
 function showPart($part) {
     if ($part === 1) {
         return true;
     }
 
-    $currentProgress = intval(file_get_contents('progress'));
+    $currentProgress = getProgress();
 
     if ($currentProgress + 1 >= $part) {
         return true;
